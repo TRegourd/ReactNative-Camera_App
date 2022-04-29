@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector";
+import { BarCodeScanner } from "expo-barcode-scanner";
 import * as MediaLibrary from "expo-media-library";
 
 //Icons
@@ -43,6 +44,10 @@ export default function App() {
       setFaceDetected(false);
     }
   };
+
+  // const handleBarcodeDetected = ({ data }) => {
+  //   console.log(data);
+  // };
 
   const displayFaceDetected = () => {
     if (faceDetected) {
@@ -92,6 +97,7 @@ export default function App() {
         type={type}
         ref={ref}
         onFacesDetected={handleFacesDetected}
+        //onBarCodeScanned={handleBarcodeDetected}
         faceDetectorSettings={{
           mode: FaceDetector.FaceDetectorMode.fast,
           detectLandmarks: FaceDetector.FaceDetectorLandmarks.none,
